@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Translator</title>
+    <link rel="stylesheet" href="./styles/cssReset.css"/>
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="icon" href="./src/logo.png" />
+    <script src="scripts/keyChecker.js" defer></script>
+    <script src="scripts/translator.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/listners.js" defer></script>
+</head>
+<body>
+    <header class="logo">
+        <img src="./src/fullLogo.svg"/>
+    </header>
+    <main class="userInputField"> 
+        <div class="userInputField__input">
+            <img src="./src/crossIcon.svg" class="userInputField__input_cross"/>
+            <div class="alert"><p class="alert__text"></p></div>
+            <textarea class="userInputField__input__textarea" placeholder="Введите свой текст"></textarea>
+        </div>
+        <div class="userInputField__lowerLine">
+            <div class="languageChoose">
+                <img src="./src/circle.svg"/>
+                <p class="languageChoose__lang" ui="en">Английский</p>
+            </div>
+        <div class="charCount">
+            <p class="charCount__actualCount">0</p>
+            <p>/7000</p>
+        </div>
+    </main>
+    <div class="buttonZone">
+        <button class="buttonZone__translateButton">Перевести</button>
+        <div class="buttonZone_arrowDown"></div>
+        <div class="buttonZone_arrowUp"></div>
+    </div>
+    <aside class="outputField outputField_short">
+        <div class="outputField__upperLine outputField__upperLine_short">
+            <div class="languageChoose">
+                <p class="languageChoose__lang" ui="ru">Русский</p>
+            </div>
+        </div>
+        <p class="outputFiled__output outputFiled__output_short" ></p>
+        <div class="outputField__additionalInfo outputField__additionalInfo_short">
+        </div>
+        <div class="outputField__lowerLine outputField__lowerLine_short">
+            <p class="outputField__lowerLine__translator">Реализовано с помощью сервиса <a href="https://tech.yandex.ru/dictionary">«Яндекс.Словарь»</a></p>
+            <p class="outputField__lowerLine__dictionary">Переведено сервесиом<a href="http://translate.yandex.ru">"Яндекс.Переводчик"</a></p>
+        </div>
+    </aside>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "name": "Translator",
+    "author":"WonderLuc",
+    "version": "1.0",
+    "description": "Translation based on yandex translator",
+    "manifest_version": 2,
+    "permissions": ["storage"],
+    "browser_action": {
+        "default_popup": "popup.html"
+      },
+      "icons": { 
+        "48": "./src/logo.png"}
+  }

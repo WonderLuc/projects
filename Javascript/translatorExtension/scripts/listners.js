@@ -1,0 +1,10 @@
+setListner('buttonZone__translateButton',getTranslate);
+setListner('userInputField__input_cross',clearAll);
+setListner('userInputField__input_cross', showClear, 'mouseover');
+setListner('userInputField__input_cross', hideClear, 'mouseout');
+setListner('userInputField__input__textarea',charCount,'keyup');
+setListner('userInputField__input__textarea',saveUserText,'keyup');
+setListner('languageChoose__lang', chooseLang);
+setListner('buttonZone_arrowDown',switchLangs);
+setListner('buttonZone_arrowUp',switchLangs);
+returnUserText();
