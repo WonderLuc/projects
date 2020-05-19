@@ -7,12 +7,15 @@ function setListner(className, func, type='click'){
 }
 
 //Clear input and output when clicked
-function clearAll(){
+function clearAll(e){
     document.getElementsByClassName('userInputField__input__textarea')[0].value= '';
     document.getElementsByClassName('outputFiled__output')[0].innerHTML= '';
     document.getElementsByClassName('outputField__additionalInfo')[0].innerHTML= '';
     document.getElementsByClassName('charCount__actualCount')[0].innerHTML = 0;
     localStorage.removeItem('userInputField__input__textarea');
+    if(e.target.parentElement.lastElementChild.tagName === "P"){
+        e.target.parentElement.lastElementChild.remove()
+    }
 }
 
 //Showing "clear"

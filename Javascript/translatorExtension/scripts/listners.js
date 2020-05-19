@@ -7,4 +7,5 @@ setListner('userInputField__input__textarea',saveUserText,'keyup');
 setListner('languageChoose__lang', chooseLang);
 setListner('buttonZone_arrowDown',switchLangs);
 setListner('buttonZone_arrowUp',switchLangs);
+setListner('userInputField__input__textarea',getPredict,'keyup');
 returnUserText();

@@ -1,6 +1,59 @@
 ﻿
 const urlTrans = "https://translate.yandex.net/api/v1.5/tr.json/";
 const urlDict = "https://dictionary.yandex.net/api/v1/dicservice.json/";
+const urlPredict = "";
+const predictKey = 'pdct.1.1.20200423T142047Z.622ae0db639a43c1.aa64e484af6ee6fb690a0d632a597d0585eb1339';
+
+async function getPredict (e){
+   
+    let text = e.target.value.split(' ');
+    switch(text.length){
+        case 0:
+            text = undefined;
+            break;
+        case 1:
+            text = encodeURIComponent(text[0]);
+            break;
+        case 2:
+            text = encodeURIComponent(text.slice(0,2).join(' '));
+            break;
+        case 3:
+            text = encodeURIComponent(text.slice(0,3).join(' '));
+            break;
+        default:
+            text = encodeURIComponent(text.slice(-3).join(' '));
+    }
+    let lang = document.getElementsByClassName('languageChoose__lang')[0].getAttribute('ui');
+    let url = `https://predictor.yandex.net/api/v1/predict.json/complete?key=${predictKey}&q=${text}&lang=${lang}`;
+    if(!text){
+        if(e.target.parentElement.lastElementChild.tagName === "P"){
+            e.target.parentElement.lastElementChild.remove()
+        }
+        return
+    }
+    let res = await fetch(url);
+    if(res.ok){
+    let json = await res.json();
+    let answer = json.text.join(' ');
+    
+    let elem = document.createElement('p');
+    elem.innerText = answer;
+    elem.style.cssText = `
+        background-color: yellow;
+        position:absolute;
+        top:244px;
+        left:20px;
+        padding:5px;
+    `;
+    
+    if(e.target.parentElement.lastElementChild.tagName === "P"){
+        e.target.parentElement.lastElementChild.remove()
+    }
+    document.getElementsByClassName('userInputField__input')[0].append(elem);
+
+    }
+
+}
 
 // Return API keys from localStorage
 function getKeys(){
